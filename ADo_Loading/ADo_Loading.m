@@ -7,61 +7,75 @@
 //
 
 #import "ADo_Loading.h"
-
-#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
-#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
-#define CornerRadius 40
-#define LineWith 4
-
-
-@interface ADo_Loading()
-
-@end
+#import "ADo_LoadingLayer.h"
+#define kScreenWidth ([UIScreen mainScreen].bounds.size.width)
+#define kScreenHeight ([UIScreen mainScreen].bounds.size.height)
+#define loadingWidth kScreenWidth / 2
+#define loadingHeight loadingWidth / 2
 
 @implementation ADo_Loading
+{
+    UIView *_maskView;
+    ADo_LoadingLayer *_loadingLayer;
+}
 
 - (instancetype)init
 {
-    if (self = [super init]) {
-        [self setUp];
+    self = [super init];
+    if (self) {
+        [self setup];
     }
     return self;
 }
 
-
-- (void)setUp
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    
-    CGFloat width = CornerRadius * 4;
-    CGFloat height = CornerRadius * 3;
-    self.frame = CGRectMake(SCREEN_WIDTH  / 2 - width / 2, SCREEN_HEIGHT / 2 - height / 2, width, height);
-//    self.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.5].CGColor;
-    UIBezierPath *roundPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(CornerRadius, CornerRadius / 2, CornerRadius * 2, CornerRadius * 2) cornerRadius:CornerRadius];
-    self.path = roundPath.CGPath;
-    self.strokeColor = [UIColor greenColor].CGColor;
-    self.fillColor = [UIColor clearColor].CGColor;
-    self.lineWidth = LineWith;
-    self.lineCap = kCALineCapRound;
-    [self loading];
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setup];
+    }
+    return self;
 }
 
-- (void)loading
+- (instancetype)initWithFrame:(CGRect)frame
 {
-    CABasicAnimation *start = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
-    start.fromValue = @(-0.5);
-    start.toValue = @(1);
-    CABasicAnimation *end = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    end.fromValue = @(0);
-    end.toValue = @(1);
-    CAAnimationGroup *group = [CAAnimationGroup animation];
-    group.animations = @[start,end];
-    group.duration = 1.f;
-    group.repeatCount = MAXFLOAT;
-    [self addAnimation:group forKey:nil];
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (void)setup
+{
+    _maskView = [[UIView alloc] init];
+    _maskView.backgroundColor = [UIColor clearColor];
+    [self addSubview:_maskView];
+    _loadingLayer = [[ADo_LoadingLayer alloc] init];
+    [self.layer addSublayer:_loadingLayer];
+}
+
+- (void)layoutSubviews
+{
+    _maskView.frame = self.bounds;
+    CGFloat centerX = CGRectGetMidX(self.bounds);
+    CGFloat centerY = CGRectGetMidY(self.bounds);
+    _loadingLayer.frame = CGRectMake(centerX - loadingWidth / 2,centerY - loadingHeight / 2,loadingWidth, loadingHeight);
 }
 
 + (void)showInView:(UIView *)view
 {
-    
+    ADo_Loading *loading = [[ADo_Loading alloc] initWithFrame:view.bounds];
+    [view addSubview:loading];
+}
+
++ (void)hideForView:(UIView *)view
+{
+    NSEnumerator *subviewsEnum = [view.subviews reverseObjectEnumerator];
+    for (UIView *subview in subviewsEnum) {
+        if ([subview isKindOfClass:self]) {
+            [subview removeFromSuperview];
+        }
+    }
 }
 @end

@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ADo_Loading.h"
 @interface ViewController ()
+- (IBAction)btnClick:(id)sender;
 
 @end
 
@@ -16,9 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    ADo_Loading *loading = [[ADo_Loading alloc] init];
-    [self.view.layer addSublayer:loading];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,8 +25,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    NSLog(@"a");
+
+- (IBAction)btnClick:(id)sender {
+    [ADo_Loading showInView:self.view];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [ADo_Loading hideForView:self.view];
+    });
+    NSLog(@"%d",self.view.subviews.count);
 }
 @end
