@@ -17,6 +17,7 @@
 		1F4D01711BDDC32800CEA4C9 /* ADo_LoadingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4D01701BDDC32800CEA4C9 /* ADo_LoadingUITests.m */; };
 		1F4D01801BDDC34A00CEA4C9 /* ADo_LoadingLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4D017F1BDDC34A00CEA4C9 /* ADo_LoadingLayer.m */; };
 		1F4D01831BDDF5A000CEA4C9 /* ADo_Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4D01821BDDF5A000CEA4C9 /* ADo_Loading.m */; };
+		1F4D01871BDE078B00CEA4C9 /* ADo_Loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1F4D01861BDE078B00CEA4C9 /* ADo_Loading.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		1F4D017F1BDDC34A00CEA4C9 /* ADo_LoadingLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADo_LoadingLayer.m; sourceTree = "<group>"; };
 		1F4D01811BDDF5A000CEA4C9 /* ADo_Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADo_Loading.h; sourceTree = "<group>"; };
 		1F4D01821BDDF5A000CEA4C9 /* ADo_Loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADo_Loading.m; sourceTree = "<group>"; };
+		1F4D01861BDE078B00CEA4C9 /* ADo_Loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ADo_Loading.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				1F4D017F1BDDC34A00CEA4C9 /* ADo_LoadingLayer.m */,
 				1F4D01811BDDF5A000CEA4C9 /* ADo_Loading.h */,
 				1F4D01821BDDF5A000CEA4C9 /* ADo_Loading.m */,
+				1F4D01861BDE078B00CEA4C9 /* ADo_Loading.gif */,
 				1F4D01541BDDC32800CEA4C9 /* Main.storyboard */,
 				1F4D01571BDDC32800CEA4C9 /* Assets.xcassets */,
 				1F4D01591BDDC32800CEA4C9 /* LaunchScreen.storyboard */,
@@ -253,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F4D01871BDE078B00CEA4C9 /* ADo_Loading.gif in Resources */,
 				1F4D015B1BDDC32800CEA4C9 /* LaunchScreen.storyboard in Resources */,
 				1F4D01581BDDC32800CEA4C9 /* Assets.xcassets in Resources */,
 				1F4D01561BDDC32800CEA4C9 /* Main.storyboard in Resources */,

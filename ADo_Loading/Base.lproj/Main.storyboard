@@ -17,16 +17,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBw-L5-mW8">
-                                <rect key="frame" x="267" y="194" width="30" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.15176518597529098" blue="0.1538855091846677" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="ado"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBw-L5-mW8">
+                                <rect key="frame" x="189" y="74" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.2200535719702067" green="0.94159206391580108" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="oDi-SR-TRZ"/>
+                                    <constraint firstAttribute="width" constant="100" id="xwZ-FS-uRd"/>
+                                </constraints>
+                                <state key="normal" title="ADo">
+                                    <color key="titleColor" red="0.90368295331913684" green="1" blue="0.99052031229592807" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="btnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NBE-X6-rVg"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LBw-L5-mW8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="54" id="Or7-U5-Gg3"/>
+                            <constraint firstItem="LBw-L5-mW8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gXq-P8-LCx"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
