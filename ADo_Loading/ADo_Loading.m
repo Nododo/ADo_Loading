@@ -65,17 +65,28 @@
 
 + (void)showInView:(UIView *)view
 {
+    if (view == nil)  view = [UIApplication sharedApplication].keyWindow;
     ADo_Loading *loading = [[ADo_Loading alloc] initWithFrame:view.bounds];
     [view addSubview:loading];
 }
 
 + (void)hideForView:(UIView *)view
 {
+    if (view == nil)  view = [UIApplication sharedApplication].keyWindow;
     NSEnumerator *subviewsEnum = [view.subviews reverseObjectEnumerator];
     for (UIView *subview in subviewsEnum) {
         if ([subview isKindOfClass:self]) {
             [subview removeFromSuperview];
         }
     }
+}
+
++ (void)show
+{
+    [self showInView:nil];
+}
++ (void)hide
+{
+    [self hideForView:nil];
 }
 @end

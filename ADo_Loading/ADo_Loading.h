@@ -11,4 +11,6 @@
 @interface ADo_Loading : UIView
 + (void)showInView:(UIView *)view;
 + (void)hideForView:(UIView *)view;
++ (void)show;
++ (void)hide;
 @end

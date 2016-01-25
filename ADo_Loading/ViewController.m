@@ -27,10 +27,15 @@
 
 
 - (IBAction)btnClick:(id)sender {
-    [ADo_Loading showInView:self.view];
+    [ADo_Loading show];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [ADo_Loading hideForView:self.view];
+        [ADo_Loading hide];
+        
     });
-    NSLog(@"%d",self.view.subviews.count);
+    NSLog(@"%@",self.view.subviews);
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"touchesBegan");
 }
 @end
